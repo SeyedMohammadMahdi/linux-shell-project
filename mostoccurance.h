@@ -5,67 +5,68 @@
 #include <stdio.h>
 
 
-void update(char **strings, char *string, int *count, int lastIndex)
+int count[1000];
+char *strings[1000];
+int lastIndex = 0;
+
+
+void init() {
+	int i;
+	for(i = 0; i < 1000; i++){
+		count[i] = 0;
+	}
+}
+
+int search(char *str)
 {
 	int i;
 	for(i = 0; i < lastIndex; i++){
-		if(strcmp(strings[i], string) == 0){
+		if(strcmp(str, strings[i]) == 0)
+			return 1;
+	}
+	return 0;
+}
+
+void update(char *str)
+{
+	int i;
+	for(i = 0; i < lastIndex; i++){
+		if(strcmp(str, strings[i]) == 0){
 			count[i]++;
 			return;
 		}
 	}
 }
 
-
-int search(char **strings, char *string, int lastIndex)
+void mostOccurate()
 {
+	char *buf;
+	int maxIndex = 0, max = 0;
 	int i;
-	for(i = 0; i < lastIndex; i++){
-		if(strcmp(string, strings[i]) == 0)
-			return 1;
-	} 
-	return 0;
-}
-
-
-void mostOccurance()
-{
-	int maxIndex = 0, max = 0, lastIndex = 0;
-	char input[1000],  *strings[1000];
-	int count[1000];
-	int j;
-	for(j = 0; j < 1000; j++)
-	{
-		count[j] = 0;
+	while(1){
+		buf = readline("");
+		if(strcmp(buf, "e") == 0)
+			break;
+			
+		if(search(buf)){
+			//printf("1\n");
+			update(buf);
+		}
+		else{
+			strings[lastIndex++] = buf;
+		}
 	}
 	
-	scanf("%s", input);
-	while(strcmp("e", input) != 0){
-		if(search(strings, input, lastIndex)){
-			update(strings, input, count, lastIndex);
-		}
-		else {
-			strings[lastIndex] = input;
-			lastIndex++;
-		}
-		scanf("%s", input);
-		//printf("**%s\n", input);
-	}
-	
-	int i;
 	for(i = 0; i < lastIndex; i++){
 		if(count[i] > max){
 			max = count[i];
 			maxIndex = i;
-			//printf("%d\n", maxIndex);
 		}
 	}
 	
-	printf("%s", strings[maxIndex]);	
+	printf("most occurate: %s\n\n", strings[maxIndex]);
+	
 }
-
-
-
 
 
 #endif 
