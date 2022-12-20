@@ -9,14 +9,6 @@ int count[1000];
 char *strings[1000];
 int lastIndex = 0;
 
-
-void init() {
-	int i;
-	for(i = 0; i < 1000; i++){
-		count[i] = 0;
-	}
-}
-
 int search(char *str)
 {
 	int i;
@@ -39,7 +31,7 @@ void update(char *str)
 }
 
 void mostOccurate()
-{
+{	
 	char *buf;
 	int maxIndex = 0, max = 0;
 	int i;
