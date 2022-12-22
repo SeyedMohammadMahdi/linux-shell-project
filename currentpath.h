@@ -1,9 +1,7 @@
 #ifndef CURRENTPATH_H
 #define CURRENTPATH_H
-
-#include <unistd.h>
-#include <stdio.h>
 #include <limits.h>
+#include <string.h>
 
 void currentPath(char *str) {
    char cwd[PATH_MAX];
