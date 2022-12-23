@@ -6,12 +6,16 @@
 #include <string.h>
 
 
-void inputReader(char* str)
+int inputReader(char* str)
 {
     char* buf;
-    buf = readline("> ");
+    buf = readline("$ ");
     add_history(buf);
     strcpy(str, buf);
+    if(strlen(buf) != 0)
+    	return 0;
+    else
+    	return 1;
 }
 
 

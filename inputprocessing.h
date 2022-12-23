@@ -5,9 +5,12 @@
 #include "common.h"
 #include <string.h>
 
-commandType inputProcessing(char *str, char **parsedStr)
+commandType inputProcessing(char *str, char **parsedStr, int *initFlag)
 {
 	parser(str, parsedStr);
+	
+	if(strcmp(parsedStr[0], "clear") == 0)
+		*initFlag = 1;
 	
 	if(strcmp("msto", parsedStr[0]) == 0 ||
 		strcmp("cd", parsedStr[0]) == 0)

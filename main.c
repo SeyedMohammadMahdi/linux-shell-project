@@ -25,15 +25,24 @@ int main()
 	char cPath[PATHL];
 	char input[MAXINPUT];
 	char *parsedInput[MAXARGS];
+	int initFlag = 1;
 	commandType type;
-	init();
+	
 	while(1)
 	{
 		
+		if(initFlag){
+			init();
+			initFlag = 0;
+		}
+		
 		currentPath(cPath);
+		printf("\033[0;34m");
 		printf("%s", cPath);
-		inputReader(input);
-		type = inputProcessing(input, parsedInput);
+		printf("\033[0;37m");
+		if(inputReader(input))
+			continue;
+		type = inputProcessing(input, parsedInput, &initFlag);
 		
 		if(type == BUILTIN)
 		{
@@ -41,7 +50,8 @@ int main()
 			if(child == 0)
 			{
 				if(execvp(parsedInput[0], parsedInput) < 0)
-					printf("\ncommand \" %s \" not found or argument needed\n\n", parsedInput[0]);
+					printf("\033[0;31m");
+					printf("\ncommand \"%s\" not found or argument needed\n\n", parsedInput[0]);
 				exit(0);
 			}
 			else

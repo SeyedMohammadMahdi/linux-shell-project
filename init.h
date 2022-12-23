@@ -3,10 +3,22 @@
 
 #include <stdio.h>
 
+/*
+30 black
+31 red
+32 green
+33 yellow
+34 blue
+35 purple
+36 cyne
+37 white
+*/
+
 
 void init()
 {
-
+	
+	printf("\033[0;36m");
 	char *programmers[] = {"Zeynab Teymoori", "Seyed Mohammad Mahdi Niknam Bagheri", NULL};
 	
 	
