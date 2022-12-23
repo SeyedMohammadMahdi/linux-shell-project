@@ -10,7 +10,8 @@ commandType inputProcessing(char *str, char **parsedStr)
 	parser(str, parsedStr);
 	
 	if(strcmp("msto", parsedStr[0]) == 0 ||
-	strcmp("cd", parsedStr[0]) == 0)
+		strcmp("cd", parsedStr[0]) == 0)
+		
 		return CUSTOM;
 	else
 		return BUILTIN;

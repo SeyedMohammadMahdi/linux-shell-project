@@ -40,7 +40,8 @@ int main()
 			pid_t child = fork();
 			if(child == 0)
 			{
-				execvp(parsedInput[0], parsedInput);
+				if(execvp(parsedInput[0], parsedInput) < 0)
+					printf("\ncommand \" %s \" not found or argument needed\n\n", parsedInput[0]);
 				exit(0);
 			}
 			else
