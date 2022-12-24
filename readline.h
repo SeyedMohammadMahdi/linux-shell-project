@@ -6,10 +6,19 @@
 #include <string.h>
 
 
-int inputReader(char* str)
+int inputReader(char* str, char* userAndHost, char* cPath)
 {
     char* buf;
-    buf = readline("$ ");
+    char out[1000];
+    strcpy(out, "\033[0;32m");
+    strcat(out, userAndHost); 
+    strcat(out, "\033[0;37m");
+    strcat(out, ":\033[0;34m~");
+    //strcat(out, "\033[0;34m");
+    strcat(out, cPath);
+    strcat(out, "\033[0;37m");
+    strcat(out, "$ ");
+    buf = readline(out);
     add_history(buf);
     strcpy(str, buf);
     if(strlen(buf) != 0)

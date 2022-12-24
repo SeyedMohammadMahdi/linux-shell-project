@@ -25,16 +25,7 @@ int flag = 1;
 
 
 void intruptHandler(int s){
-	currentPath(userAndHost, cPath);
-	printf("\n");
-	printf("\033[0;32m");
-	printf("%s", userAndHost);
-	printf("\033[0;37m");
-	printf(":");
-	printf("\033[0;34m");
-	printf("~/%s", cPath);
-	printf("\033[0;37m");
-	printf("$ ");
+	printf("\npress enter again");
 	flag = 0;
 	return;
 }
@@ -57,15 +48,9 @@ int main()
 		}
 		
 		currentPath(userAndHost, cPath);
-		printf("\033[0;32m");
-		printf("%s", userAndHost);
-		printf("\033[0;37m");
-		printf(":");
-		printf("\033[0;34m");
-		printf("~/%s", cPath);
-		printf("\033[0;37m");
 		
-		if(inputReader(input))
+		
+		if(inputReader(input, userAndHost, cPath))
 			continue;
 			
 		if(flag)

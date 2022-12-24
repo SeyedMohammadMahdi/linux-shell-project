@@ -1,2 +1,7 @@
 a.out
 compile.sh
+f.c
+fork.c
+fork2.c
+file.txt
+readingfile.txt
