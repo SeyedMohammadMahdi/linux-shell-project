@@ -30,7 +30,7 @@ void update(char *str)
 	}
 }
 
-void mostOccurate()
+void mostFrequent()
 {	
 	char *buf;
 	int maxIndex = 0, max = 0;
