@@ -1,15 +1,16 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <signal.h>
 
 #include "init.h"
 #include "currentpath.h"
 #include "readline.h"
 #include "parser.h"
 #include "inputprocessing.h"
-#include <stdlib.h>
-#include <signal.h>
 #include "clear.h"
+#include "common.h"
 
 #define PATHL 1000
 #define MAXINPUT 1000
@@ -18,8 +19,6 @@
 char cPath[PATHL];
 char userAndHost[PATHL];
 int flag = 1;
-
-//typedef enum {} COMMAND;
 
 
 
@@ -77,8 +76,12 @@ int main()
 			{
 				if(strcmp(parsedInput[0], "exit") == 0)
 					return 0;
-			/*custom command handler*/
-			//chdir(parsedInput[1]);
+				/*custom command handler*/
+				//chdir(parsedInput[1]);
+				
+				/****************************************************/
+				/*  file processing commands should be writen here  */
+				/****************************************************/
 			}
 		}
 	}
