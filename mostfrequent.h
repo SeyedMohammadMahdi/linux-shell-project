@@ -30,15 +30,17 @@ void update(char *str)
 	}
 }
 
-void mostFrequent()
+void mostFrequent(char *fileName)
 {	
-	char *buf;
+	FILE *file;
+	file = fopen(fileName, "r");
+	char buf[1000];
 	int maxIndex = 0, max = 0;
 	int i;
-	while(1){
-		buf = readline("");
-		if(strcmp(buf, "e") == 0)
-			break;
+	while(fgets(buf, 1000, file) != NULL){
+		//buf = readline("");
+		//if(strcmp(buf, "e") == 0)
+		//	break;
 			
 		if(search(buf)){
 			//printf("1\n");
@@ -56,7 +58,8 @@ void mostFrequent()
 		}
 	}
 	
-	printf("most occurate: %s\n\n", strings[maxIndex]);
+	printf("\nmost occurate: %s\n", strings[maxIndex]);
+	fclose(file);
 	
 }
 
