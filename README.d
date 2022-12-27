@@ -1,6 +1,6 @@
 custom commands
 mainl => mainLines (no comment)
-mast => most frequent word
+mastf => most frequent word
 remove => remove white spaces
 split => shows the first word of each line
 ten => shows ten first lines
