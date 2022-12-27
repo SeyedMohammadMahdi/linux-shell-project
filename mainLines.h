@@ -15,12 +15,12 @@ FILE *fp , *fp2;
 int mainLines(FILE* fp1, char filename[MAX_FILE_NAME], char destFileName[MAX_FILE_NAME]){
     char c;
     fp = fopen (filename,"r") ;   // open the first file in read mode
-    fp2 = fopen (destFileName,"w") ;    // open the second file in write mode
+    // open the second file in write mode
     while((c=fgetc(fp))!=EOF){       // read the file character by character
         check_comment(c); 
     }
     fclose(fp);
-    fclose(fp2);
+   
     return 0;
 }	
 
@@ -28,10 +28,12 @@ void check_comment(char c){
     char d;
     if( c == '#') {
           single_comment();
-          fputc('\n', fp2);
+     
+          printf("\n");
     }
     else
-        fputc(c,fp2);
+   
+        printf("%c", c);
 }
 
 void single_comment(){

@@ -9,7 +9,7 @@
 // part a
 int splittingLine(FILE* ptr, char filename[MAX_FILE_NAME]){
 	
-	ptr = fopen(filename, "a+");
+	ptr = fopen(filename, "r");
 	if (NULL == ptr) {
 		printf("file can't be opened \n");
 		return 0;

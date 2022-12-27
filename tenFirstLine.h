@@ -9,7 +9,7 @@
 // part g
 int tenFirstLine(FILE* ptr, char filename[MAX_FILE_NAME]){
 	int count = 0;
-	ptr = fopen(filename, "a+");
+	ptr = fopen(filename, "r");
 	if (NULL == ptr) {
 		printf("file can't be opened \n");
 		return 0;
