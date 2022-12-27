@@ -59,7 +59,7 @@ void mostFrequent(char *fileName)
 		}
 	}
 	
-	printf("\nmost occurate: %s\n", strings[maxIndex]);
+	printf("\nmost frequent: %s\n", strings[maxIndex]);
 	fclose(file);
 	
 }
