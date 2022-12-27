@@ -116,7 +116,7 @@ int main()
 					{
 					
 						if(strcmp(parsedInput[0], "mainl") == 0)
-							mainLines(ptr, parsedInput[1]);
+							mainLines(ptr, parsedInput[1], parsedInput[2]);
 					
 						else if(strcmp(parsedInput[0], "mstf") == 0)
 							mostFrequent(parsedInput[1]);
