@@ -6,7 +6,7 @@
 
 
 int count[1000];
-char *strings[1000];
+char strings[1000][1000];
 int lastIndex = 0;
 
 int search(char *str)
@@ -47,7 +47,8 @@ void mostFrequent(char *fileName)
 			update(buf);
 		}
 		else{
-			strings[lastIndex++] = buf;
+			//strings[lastIndex++] = buf;
+			strcpy(strings[lastIndex++], buf);
 		}
 	}
 	
