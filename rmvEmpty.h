@@ -60,11 +60,7 @@ int rmvEmpty(FILE* fp1, char filename[MAX_FILE_NAME]){
         }
     }
     fclose(fp1);
-    fp1=fopen("file1.c","r");
-    while((ch=fgetc(fp1))!=EOF){
-        printf("%c",ch);
-    }
-    fclose(fp1);
+    printf("\n");
     return 0;
 }
 

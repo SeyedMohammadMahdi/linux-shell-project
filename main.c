@@ -112,32 +112,33 @@ int main()
 				else
 				{
 					pid_t child = fork();
-				if(child == 0)
-				{
+					if(child == 0)
+					{
 					
-				if(strcmp(parsedInput[0], "mainl") == 0)
-					mainLines(ptr, parsedInput[1]);
+						if(strcmp(parsedInput[0], "mainl") == 0)
+							mainLines(ptr, parsedInput[1]);
 					
-				else if(strcmp(parsedInput[0], "mstf") == 0)
-					mostFrequent(parsedInput[1]);
+						else if(strcmp(parsedInput[0], "mstf") == 0)
+							mostFrequent(parsedInput[1]);
 					
-				else if(strcmp(parsedInput[0], "remove") == 0)
-					rmvEmpty(ptr, parsedInput[1]);
+						else if(strcmp(parsedInput[0], "remove") == 0)
+							rmvEmpty(ptr, parsedInput[1]);
 					
-				else if(strcmp(parsedInput[0], "split") == 0)
-					splittingLine(ptr, parsedInput[1]);
+						else if(strcmp(parsedInput[0], "split") == 0)
+							splittingLine(ptr, parsedInput[1]);
 					
-				else if(strcmp(parsedInput[0], "ten") == 0)
-					tenFirstLine(ptr, parsedInput[1]);
+						else if(strcmp(parsedInput[0], "ten") == 0)
+							tenFirstLine(ptr, parsedInput[1]);
 				
-				else if(strcmp(parsedInput[0], "count") == 0)
-					numberOfLines(ptr, parsedInput[1]);
-					exit(0);
-				}
-				else 
-				{
-					wait(NULL);
-				}
+						else if(strcmp(parsedInput[0], "count") == 0)
+							numberOfLines(ptr, parsedInput[1]);
+						
+						exit(0);
+					}
+					else 
+					{
+						wait(NULL);
+					}
 				}
 				
 			}

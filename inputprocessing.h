@@ -19,7 +19,8 @@ commandType inputProcessing(char *str, char **parsedStr, int *initFlag)
 		strcmp("remove", parsedStr[0]) == 0 ||
 		strcmp("split", parsedStr[0]) == 0 ||
 		strcmp("ten", parsedStr[0]) == 0 ||
-		strcmp("count", parsedStr[0]) == 0)
+		strcmp("count", parsedStr[0]) == 0
+		)
 		
 		return CUSTOM;
 	else

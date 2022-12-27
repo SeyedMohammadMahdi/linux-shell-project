@@ -14,10 +14,12 @@ FILE *fp , *fp2;
 
 int mainLines(FILE* fp1, char filename[MAX_FILE_NAME]){
     char c;
-    fp = fopen ("readingfile.txt","r") ;   // open the first file in read mode
+    fp = fopen (filename,"r") ;   // open the first file in read mode
     fp2 = fopen ("file.txt","w") ;    // open the second file in write mode
-    while((c=fgetc(fp))!=EOF)       // read the file character by character
+    while((c=fgetc(fp))!=EOF){       // read the file character by character
         check_comment(c); 
+        printf("%c\n", c);
+    }
     fclose(fp);
     fclose(fp2);
     return 0;
