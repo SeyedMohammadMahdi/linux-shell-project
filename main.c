@@ -3,6 +3,16 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <setjmp.h>
+#include <errno.h>
+#include <error.h>
+#include <getopt.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #include "init.h"
 #include "currentpath.h"
@@ -26,13 +36,15 @@ char cPath[PATHL];
 char userAndHost[PATHL];
 int flag = 1;
 
+sigjmp_buf ctrlc_buf;
 
 
 
-void intruptHandler(int s){
-	printf("\npress enter again");
-	flag = 0;
-	return;
+void ctrlc(int signo) {
+  if (signo == SIGINT) {
+    printf("\n");
+    siglongjmp(ctrlc_buf, 1);
+  }
 }
 
 
@@ -61,7 +73,7 @@ int main()
 	char *parsedInput[MAXARGS];
 	int initFlag = 1;
 	commandType type;
-	signal(SIGINT, intruptHandler);
+	signal(SIGINT, ctrlc);
 	FILE* ptr;
 	
 	
@@ -75,7 +87,7 @@ int main()
 		
 		currentPath(userAndHost, cPath);
 		
-		
+		while ( sigsetjmp( ctrlc_buf, 1 ) != 0 );
 		if(inputReader(input, userAndHost, cPath))
 			continue;
 			
