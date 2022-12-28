@@ -7,6 +7,7 @@ int parser(char *str, char **param)
 {	
 	int i = 0;
 	char *qoute = strchr(str, '\"');
+	// if input string contains double qoutes this condition is true
 	if(qoute != NULL){
 		char *str2;
 		str2 = strsep(&str, "\"");
@@ -16,10 +17,10 @@ int parser(char *str, char **param)
 		}
 		param[i - 2] = strsep(&str, "\"");
 		param[i-1] = NULL;
-//		printf("%s", param[i - 3]);
 		return i;
 		
 	}
+	// if the is no qoutes in input string the following codes are executed
 	param[i++] = strsep(&str, " ");
 	while(param[i - 1] != NULL){
 		param[i++] = strsep(&str, " ");
