@@ -12,3 +12,6 @@ count => counts the number of lines in a text file
 همه موارد نمره اضافه رعایت شده است
 برای پایپلاین باید ورودی بدون فاصله باشد
 ls|grep a
+
+
+https://github.com/SeyedMohammadMahdi/linux-shell-project.git
