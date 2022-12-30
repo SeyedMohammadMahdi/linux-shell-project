@@ -27,6 +27,8 @@
 #include "tenFirstLine.h"
 #include "numberOfLines.h"
 #include "splittingLine.h"
+#include "pipeProcess.h"
+#include "pipeRunner.h"
 
 #define PATHL 1000
 #define MAXINPUT 1000
@@ -70,7 +72,7 @@ int main()
 {	
 	
 	char input[MAXINPUT];
-	char *parsedInput[MAXARGS];
+	char *parsedInput[MAXARGS], *pipe1[MAXARGS], *pipe2[MAXARGS];
 	int initFlag = 1;
 	commandType type;
 	signal(SIGINT, ctrlc);
@@ -93,7 +95,7 @@ int main()
 			
 		if(flag)
 		{
-			type = inputProcessing(input, parsedInput, &initFlag);
+			type = inputProcessing(input, parsedInput, &initFlag, pipe1, pipe2);
 		
 			if(type == BUILTIN)
 			{
@@ -111,7 +113,7 @@ int main()
 					wait(NULL);
 				}
 			}
-			else if(strcmp(parsedInput[0], "exit") == 0)
+			else if(type == EXIT)
 			{
 				return 0;
 			}
@@ -153,6 +155,11 @@ int main()
 					}
 				}
 				
+			}
+			else if(type == PIPE)
+			{
+				//printf("***************");
+				pipeRunner(pipe1, pipe2);
 			}
 		}
 	}
